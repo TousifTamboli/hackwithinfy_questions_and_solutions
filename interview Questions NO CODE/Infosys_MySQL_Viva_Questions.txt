@@ -1,0 +1,435 @@
+INFOSYS INTERVIEW – MYSQL / SQL VIVA MASTER LIST
+Most Important Questions for Fresher / System Engineer / DSE / SP Interviews
+Prepared from recurring candidate-reported Infosys interview topics and recent interview reports.
+
+IMPORTANT:
+This is a preparation list, not an official Infosys question paper. Interview questions vary by role, interviewer, resume and year.
+
+============================================================
+A. TOP 25 – MUST PREPARE FIRST
+============================================================
+
+1. What is SQL? What is MySQL? What is the difference?
+2. What is DBMS? What is RDBMS?
+3. What are DDL, DML, DQL, DCL and TCL?
+4. What is a Primary Key? Give an example.
+5. What is a Foreign Key? Give an example.
+6. Primary Key vs Candidate Key vs Unique Key.
+7. What is a JOIN? Explain INNER, LEFT, RIGHT and FULL OUTER JOIN.
+8. INNER JOIN vs LEFT JOIN.
+9. What is a SELF JOIN? Give an example.
+10. What is GROUP BY?
+11. What is HAVING?
+12. WHERE vs HAVING.
+13. GROUP BY vs ORDER BY.
+14. DELETE vs TRUNCATE vs DROP.
+15. What is NULL? How is NULL different from 0 and an empty string?
+16. What are aggregate functions? COUNT, SUM, AVG, MIN, MAX.
+17. Write a query to find the second-highest salary.
+18. Write a query to find the Nth-highest salary.
+19. Write a query to find the highest salary in each department.
+20. Write a query to count employees in each department.
+21. Write a query to find duplicate records.
+22. Write a query to delete duplicate records.
+23. What is a subquery? What are its types?
+24. What is normalization? Explain 1NF, 2NF and 3NF.
+25. What is an index? Why is it used?
+
+============================================================
+B. SQL BASICS / MYSQL FUNDAMENTALS
+============================================================
+
+26. What is SQL?
+27. What is MySQL?
+28. SQL vs MySQL.
+29. What is a database?
+30. What is a DBMS?
+31. What is an RDBMS?
+32. DBMS vs RDBMS.
+33. What is a table?
+34. What is a row/record?
+35. What is a column/attribute?
+36. What is a schema?
+37. What is a constraint?
+38. What are the common constraints in MySQL?
+39. Explain NOT NULL.
+40. Explain UNIQUE.
+41. Explain PRIMARY KEY.
+42. Explain FOREIGN KEY.
+43. Explain CHECK.
+44. Explain DEFAULT.
+45. What is AUTO_INCREMENT in MySQL?
+46. Can a table have multiple primary keys?
+47. Can a table have multiple UNIQUE keys?
+48. Can a foreign key contain NULL?
+49. What is referential integrity?
+50. What is a composite key?
+
+============================================================
+C. SQL COMMAND TYPES
+============================================================
+
+51. What is DDL? Give examples.
+52. What is DML? Give examples.
+53. What is DQL?
+54. What is DCL?
+55. What is TCL?
+56. Examples of CREATE, ALTER, DROP and TRUNCATE.
+57. Examples of INSERT, UPDATE and DELETE.
+58. What is SELECT?
+59. ALTER vs UPDATE.
+60. DELETE vs TRUNCATE.
+61. TRUNCATE vs DROP.
+62. Which commands affect table structure?
+63. Which commands affect table data?
+64. What is COMMIT?
+65. What is ROLLBACK?
+66. What is SAVEPOINT?
+67. What is GRANT?
+68. What is REVOKE?
+
+============================================================
+D. JOINS – VERY IMPORTANT
+============================================================
+
+69. What is a JOIN?
+70. Why do we use JOINs?
+71. What is INNER JOIN?
+72. What is LEFT JOIN?
+73. What is RIGHT JOIN?
+74. What is FULL OUTER JOIN?
+75. What is CROSS JOIN?
+76. What is SELF JOIN?
+77. INNER JOIN vs LEFT JOIN.
+78. LEFT JOIN vs RIGHT JOIN.
+79. JOIN vs subquery.
+80. Can you join more than two tables?
+81. Can a JOIN have multiple conditions?
+82. Write a query joining Employee and Department.
+83. Find employees who do not have a department.
+84. Find departments with no employees.
+85. Find employees and their manager names using SELF JOIN.
+86. Find employees earning more than their managers.
+87. Explain ON vs WHERE in a JOIN.
+88. What happens if the JOIN condition is missing?
+89. What is a Cartesian product?
+
+============================================================
+E. WHERE / GROUP BY / HAVING / ORDER BY
+============================================================
+
+90. What is WHERE?
+91. What is GROUP BY?
+92. What is HAVING?
+93. What is ORDER BY?
+94. WHERE vs HAVING.
+95. GROUP BY vs ORDER BY.
+96. Can HAVING be used without GROUP BY?
+97. Can WHERE use aggregate functions directly?
+98. Why is HAVING used with COUNT/SUM/AVG?
+99. Find departments having more than 5 employees.
+100. Find duplicate names using GROUP BY.
+101. Count employees in every department.
+102. Find the department with the highest number of employees.
+103. Find the average salary in every department.
+104. Find departments whose average salary is above a given value.
+105. Sort employees by salary descending.
+106. Find the top 3 salaries.
+
+============================================================
+F. AGGREGATE FUNCTIONS
+============================================================
+
+107. What is COUNT()?
+108. COUNT(*) vs COUNT(column).
+109. What is SUM()?
+110. What is AVG()?
+111. What is MIN()?
+112. What is MAX()?
+113. Can aggregate functions be used with GROUP BY?
+114. Can aggregate functions be used in WHERE?
+115. How does COUNT handle NULL?
+116. Find the maximum salary.
+117. Find the minimum salary.
+118. Find the average salary.
+119. Find total salary paid by each department.
+120. Find number of employees in each department.
+
+============================================================
+G. SALARY / QUERY-WRITING QUESTIONS – VERY IMPORTANT
+============================================================
+
+121. Find the highest salary.
+122. Find the second-highest salary.
+123. Find the third-highest salary.
+124. Find the Nth-highest salary.
+125. Find the highest salary in each department.
+126. Find the second-highest salary in each department.
+127. Find the top 3 salaries in each department.
+128. Find employees earning more than the average salary.
+129. Find employees earning more than their department average.
+130. Find employees with the same salary.
+131. Find duplicate employee records.
+132. Delete duplicate employee records.
+133. Find employees with the maximum salary.
+134. Find the employee with the minimum salary.
+135. Find the top 3 employees by salary.
+136. Find the department with the highest average salary.
+137. Find the department with the highest-paid employee.
+
+============================================================
+H. SUBQUERIES
+============================================================
+
+138. What is a subquery?
+139. Where can a subquery be used?
+140. What is a scalar subquery?
+141. What is a single-row subquery?
+142. What is a multi-row subquery?
+143. What is a correlated subquery?
+144. Correlated vs non-correlated subquery.
+145. IN vs EXISTS.
+146. ANY vs ALL.
+147. Find employees earning more than average salary using a subquery.
+148. Find second-highest salary using a subquery.
+149. Find employees earning the maximum salary.
+150. Find employees whose salary is above their department average.
+
+============================================================
+I. NULL / CONDITIONS / OPERATORS
+============================================================
+
+151. What is NULL?
+152. NULL vs 0.
+153. NULL vs empty string.
+154. How do you check for NULL?
+155. Why is = NULL incorrect?
+156. IS NULL vs IS NOT NULL.
+157. What is COALESCE?
+158. What is IFNULL in MySQL?
+159. What is CASE?
+160. Explain BETWEEN.
+161. Explain IN.
+162. Explain LIKE.
+163. LIKE 'A%' vs '%A'.
+164. What is NOT IN?
+165. What problem can NULL cause with NOT IN?
+
+============================================================
+J. KEYS
+============================================================
+
+166. What is a primary key?
+167. What is a foreign key?
+168. Primary key vs foreign key.
+169. Primary key vs unique key.
+170. Primary key vs candidate key.
+171. What is a candidate key?
+172. What is a super key?
+173. What is a composite key?
+174. Can a foreign key reference a unique key?
+175. Can a primary key contain NULL?
+176. Can a UNIQUE column contain NULL in MySQL?
+177. Can one table have multiple foreign keys?
+
+============================================================
+K. NORMALIZATION
+============================================================
+
+178. What is normalization?
+179. Why is normalization needed?
+180. What is 1NF?
+181. What is 2NF?
+182. What is 3NF?
+183. What is BCNF?
+184. 2NF vs 3NF.
+185. What is partial dependency?
+186. What is transitive dependency?
+187. What is denormalization?
+188. Advantages and disadvantages of normalization.
+189. Given a table, identify its normal form.
+
+============================================================
+L. INDEXES
+============================================================
+
+190. What is an index?
+191. Why are indexes used?
+192. How does an index improve SELECT performance?
+193. What are the disadvantages of indexes?
+194. What is a clustered index?
+195. What is a non-clustered index?
+196. What is a composite index?
+197. What is a unique index?
+198. When should you NOT create an index?
+199. What happens to indexes when INSERT/UPDATE/DELETE occurs?
+200. How do you create an index in MySQL?
+
+============================================================
+M. TRANSACTIONS / ACID
+============================================================
+
+201. What is a transaction?
+202. What are ACID properties?
+203. Explain Atomicity.
+204. Explain Consistency.
+205. Explain Isolation.
+206. Explain Durability.
+207. What is COMMIT?
+208. What is ROLLBACK?
+209. What is SAVEPOINT?
+210. What is a deadlock?
+211. How can deadlocks occur?
+212. What is transaction isolation?
+
+============================================================
+N. VIEWS / PROCEDURES / FUNCTIONS / TRIGGERS
+============================================================
+
+213. What is a VIEW?
+214. Why are views used?
+215. Can a view be updated?
+216. View vs table.
+217. What is a stored procedure?
+218. What is a stored function?
+219. Procedure vs function.
+220. Can a function be called from a SELECT statement?
+221. What is a trigger?
+222. When would you use a trigger?
+223. BEFORE vs AFTER trigger.
+224. What is a cursor?
+225. When would a cursor be used?
+
+============================================================
+O. UNION / SET OPERATORS
+============================================================
+
+226. What is UNION?
+227. What is UNION ALL?
+228. UNION vs UNION ALL.
+229. What conditions must be satisfied to use UNION?
+230. Does UNION remove duplicates?
+231. Does UNION ALL remove duplicates?
+
+============================================================
+P. MYSQL-SPECIFIC QUESTIONS
+============================================================
+
+232. What is AUTO_INCREMENT?
+233. What is LIMIT?
+234. What is OFFSET?
+235. What is the difference between CHAR and VARCHAR?
+236. What is VARCHAR?
+237. What is DATE vs DATETIME vs TIMESTAMP?
+238. What is ENUM?
+239. What is the default storage engine in modern MySQL?
+240. What is InnoDB?
+241. What is a transaction-safe storage engine?
+242. What is EXPLAIN?
+243. How do you inspect a query execution plan?
+244. What is a composite index in MySQL?
+245. What is ON DELETE CASCADE?
+246. What is ON UPDATE CASCADE?
+247. Where should ON DELETE CASCADE be defined?
+248. What happens when a referenced parent row is deleted?
+
+============================================================
+Q. HIGH-VALUE QUERY PRACTICE
+============================================================
+
+249. Find the second-highest salary without LIMIT.
+250. Find the Nth-highest salary.
+251. Find the highest salary per department.
+252. Find the top 3 salaries per department.
+253. Find duplicate records.
+254. Delete duplicate records.
+255. Count employees per department.
+256. Find departments with more than 5 employees.
+257. Find employees without a department.
+258. Find departments without employees.
+259. Find employees whose salary is greater than the average.
+260. Find employees whose salary is greater than their department average.
+261. Find employees earning more than their manager.
+262. Find employees with duplicate salaries.
+263. Find the employee with the highest salary in each department.
+264. Update an employee's salary using an email ID.
+265. Select the top 3 students ordered by marks descending.
+266. Find the second-highest marks.
+267. Find records between two dates.
+268. Find employees whose names start with A.
+269. Count NULL and non-NULL values.
+270. Replace NULL with a default value.
+
+============================================================
+R. RAPID-FIRE FOLLOW-UP QUESTIONS
+============================================================
+
+271. Why can't WHERE be used instead of HAVING for COUNT(*)?
+272. Why does GROUP BY require non-aggregated selected columns to be grouped?
+273. What happens if two employees have the same highest salary?
+274. Difference between RANK, DENSE_RANK and ROW_NUMBER.
+275. Which ranking function should be used for the Nth DISTINCT salary?
+276. What happens when a JOIN finds multiple matching rows?
+277. INNER JOIN vs EXISTS.
+278. LEFT JOIN + IS NULL vs NOT EXISTS.
+279. Why can NOT IN behave unexpectedly with NULL?
+280. Why can an index slow down INSERT operations?
+281. Why should we avoid SELECT * in production queries?
+282. What is a Cartesian product?
+283. What is referential integrity?
+284. What is a transaction isolation level?
+285. What happens if a transaction is not committed?
+286. Can DELETE be rolled back?
+287. Can TRUNCATE be rolled back in MySQL?
+288. Does DROP delete the table structure?
+289. Does GROUP BY sort the result?
+290. How does MySQL treat NULL in aggregate functions?
+291. Difference between COUNT(*) and COUNT(DISTINCT column).
+292. Difference between UNION and UNION ALL.
+293. Difference between ON and WHERE in JOIN.
+294. What is query optimization?
+295. How would you optimize a slow SQL query?
+
+============================================================
+FINAL PRIORITY CHECKLIST
+============================================================
+
+If you have very little time, prepare these first:
+
+[ ] SQL vs MySQL
+[ ] DBMS vs RDBMS
+[ ] DDL / DML / DQL / DCL / TCL
+[ ] Primary Key vs Foreign Key
+[ ] Primary Key vs Unique Key
+[ ] All JOIN types
+[ ] INNER JOIN vs LEFT JOIN
+[ ] SELF JOIN
+[ ] WHERE vs HAVING
+[ ] GROUP BY
+[ ] Aggregate functions
+[ ] DELETE vs TRUNCATE vs DROP
+[ ] NULL and IS NULL
+[ ] Subqueries
+[ ] Correlated subquery
+[ ] Normalization: 1NF/2NF/3NF
+[ ] Indexes
+[ ] ACID
+[ ] Second-highest salary
+[ ] Nth-highest salary
+[ ] Highest salary per department
+[ ] Count employees per department
+[ ] Departments with >5 employees
+[ ] Find duplicates
+[ ] Delete duplicates
+[ ] Employees above average salary
+[ ] Employees above department average
+[ ] Employees earning more than managers
+[ ] UPDATE query
+[ ] Top 3 rows
+[ ] RANK vs DENSE_RANK vs ROW_NUMBER
+[ ] UNION vs UNION ALL
+[ ] CASE WHEN
+[ ] EXISTS vs IN
+[ ] ON DELETE CASCADE
+
+END OF FILE

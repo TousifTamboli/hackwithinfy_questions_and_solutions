@@ -1,0 +1,727 @@
+INFOSYS MYSQL / SQL VIVA – QUESTIONS + ANSWERS
+Interview-focused revision sheet
+
+NOTE:
+This is a preparation guide based on recurring candidate-reported Infosys SQL/MySQL topics and common interview patterns. It is not an official Infosys question paper.
+
+============================================================
+1. SQL BASICS
+============================================================
+
+Q1. What is SQL?
+Answer:
+SQL (Structured Query Language) is a language used to create, retrieve, insert, update, delete and manage data in relational databases.
+
+Q2. What is MySQL?
+Answer:
+MySQL is a relational database management system (RDBMS) that uses SQL to store and manage data.
+
+Q3. SQL vs MySQL?
+Answer:
+SQL is the language used to interact with relational databases. MySQL is a database management system that implements SQL.
+
+Q4. What is DBMS?
+Answer:
+DBMS is software used to store, organize, retrieve and manage data in a database.
+
+Q5. What is RDBMS?
+Answer:
+RDBMS stores data in related tables consisting of rows and columns. Examples include MySQL, PostgreSQL, Oracle and SQL Server.
+
+Q6. DBMS vs RDBMS?
+Answer:
+RDBMS is a type of DBMS that uses tables and relationships between tables, usually enforcing relational constraints such as primary and foreign keys.
+
+============================================================
+2. SQL COMMAND TYPES
+============================================================
+
+Q7. What is DDL?
+Answer:
+DDL (Data Definition Language) defines or changes database structures.
+Examples: CREATE, ALTER, DROP, TRUNCATE.
+
+Q8. What is DML?
+Answer:
+DML (Data Manipulation Language) changes data stored in tables.
+Examples: INSERT, UPDATE, DELETE.
+
+Q9. What is DQL?
+Answer:
+DQL is generally used to refer to data retrieval commands, mainly SELECT.
+
+Q10. What is DCL?
+Answer:
+DCL controls access and permissions.
+Examples: GRANT and REVOKE.
+
+Q11. What is TCL?
+Answer:
+TCL manages transactions.
+Examples: COMMIT, ROLLBACK and SAVEPOINT.
+
+Q12. DELETE vs TRUNCATE vs DROP?
+Answer:
+DELETE removes selected rows and supports a WHERE clause. TRUNCATE removes all rows from a table. DROP removes the table itself, including its structure.
+
+Q13. DELETE vs TRUNCATE?
+Answer:
+DELETE can remove selected rows using WHERE. TRUNCATE removes all rows and does not use WHERE. DELETE is row-level DML; TRUNCATE is a DDL-style operation in MySQL.
+
+Q14. What is COMMIT?
+Answer:
+COMMIT permanently saves the changes made by a transaction.
+
+Q15. What is ROLLBACK?
+Answer:
+ROLLBACK undoes uncommitted transaction changes.
+
+============================================================
+3. KEYS AND CONSTRAINTS
+============================================================
+
+Q16. What is a Primary Key?
+Answer:
+A primary key uniquely identifies each row in a table. It cannot contain NULL values and a table has one primary-key constraint, which can consist of multiple columns.
+
+Q17. What is a Foreign Key?
+Answer:
+A foreign key is a column or group of columns that references a key in another table. It helps maintain referential integrity.
+
+Q18. Primary Key vs Unique Key?
+Answer:
+A primary key uniquely identifies rows and cannot be NULL. A UNIQUE constraint also enforces uniqueness, while MySQL permits NULL values in a UNIQUE column according to its NULL semantics.
+
+Q19. What is a Composite Key?
+Answer:
+A composite key is a key made from two or more columns.
+
+Q20. What is a Candidate Key?
+Answer:
+A candidate key is a minimal set of columns that can uniquely identify a row. One candidate key can be selected as the primary key.
+
+Q21. What is a constraint?
+Answer:
+A constraint is a rule enforced by the database to maintain valid and consistent data.
+
+Common constraints:
+PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, CHECK, DEFAULT.
+
+Q22. Can a foreign key contain NULL?
+Answer:
+Yes, unless the foreign-key column is also defined as NOT NULL.
+
+============================================================
+4. JOINS
+============================================================
+
+Q23. What is a JOIN?
+Answer:
+A JOIN combines rows from two or more tables using a related column or condition.
+
+Q24. What is INNER JOIN?
+Answer:
+It returns only rows that have matching values in both tables.
+
+Example:
+SELECT e.name, d.dept_name
+FROM Employee e
+INNER JOIN Department d
+ON e.dept_id = d.dept_id;
+
+Q25. What is LEFT JOIN?
+Answer:
+It returns every row from the left table and matching rows from the right table. If there is no match, right-table columns contain NULL.
+
+Q26. What is RIGHT JOIN?
+Answer:
+It returns every row from the right table and matching rows from the left table.
+
+Q27. What is CROSS JOIN?
+Answer:
+It returns the Cartesian product: every row from the first table combined with every row from the second table.
+
+Q28. What is SELF JOIN?
+Answer:
+A self join joins a table to itself, usually using aliases.
+
+Example:
+SELECT e.name, m.name AS manager
+FROM Employee e
+JOIN Employee m
+ON e.manager_id = m.id;
+
+Q29. INNER JOIN vs LEFT JOIN?
+Answer:
+INNER JOIN keeps only matching rows. LEFT JOIN keeps all rows from the left table, including rows without a match.
+
+Q30. ON vs WHERE in a JOIN?
+Answer:
+ON defines how rows are matched during the join. WHERE filters the resulting rows. Moving a condition between ON and WHERE can change results, especially with OUTER JOINs.
+
+Q31. What happens if a JOIN condition is missing?
+Answer:
+The query can produce a Cartesian product, potentially generating a very large number of rows.
+
+============================================================
+5. GROUP BY / HAVING / ORDER BY
+============================================================
+
+Q32. What is GROUP BY?
+Answer:
+GROUP BY combines rows having the same values into groups, normally so aggregate functions can be calculated for each group.
+
+Q33. What is HAVING?
+Answer:
+HAVING filters groups after GROUP BY and is commonly used with aggregate functions.
+
+Q34. WHERE vs HAVING?
+Answer:
+WHERE filters individual rows before grouping. HAVING filters groups after aggregation.
+
+Q35. Can WHERE use COUNT() directly?
+Answer:
+Normally no. Aggregate results are evaluated after row filtering. Use HAVING for filtering grouped aggregate results.
+
+Q36. GROUP BY vs ORDER BY?
+Answer:
+GROUP BY forms groups for aggregation. ORDER BY sorts the final result.
+
+Q37. Does GROUP BY automatically guarantee result order?
+Answer:
+No. If a specific order is required, use ORDER BY.
+
+Q38. Find departments having more than 5 employees.
+Answer:
+SELECT dept_id, COUNT(*) AS employee_count
+FROM Employee
+GROUP BY dept_id
+HAVING COUNT(*) > 5;
+
+Q39. Count employees in each department.
+Answer:
+SELECT dept_id, COUNT(*) AS employee_count
+FROM Employee
+GROUP BY dept_id;
+
+============================================================
+6. AGGREGATE FUNCTIONS
+============================================================
+
+Q40. What are aggregate functions?
+Answer:
+Aggregate functions calculate a value from multiple rows.
+Common examples: COUNT(), SUM(), AVG(), MIN(), MAX().
+
+Q41. COUNT(*) vs COUNT(column)?
+Answer:
+COUNT(*) counts rows. COUNT(column) counts non-NULL values in that column.
+
+Q42. What does AVG() do with NULL?
+Answer:
+AVG ignores NULL values.
+
+Q43. Find the highest salary.
+Answer:
+SELECT MAX(salary)
+FROM Employee;
+
+Q44. Find the average salary.
+Answer:
+SELECT AVG(salary)
+FROM Employee;
+
+Q45. Find total salary by department.
+Answer:
+SELECT dept_id, SUM(salary)
+FROM Employee
+GROUP BY dept_id;
+
+============================================================
+7. MOST IMPORTANT SALARY QUESTIONS
+============================================================
+
+Q46. Find the second-highest salary.
+Answer:
+SELECT MAX(salary)
+FROM Employee
+WHERE salary < (SELECT MAX(salary) FROM Employee);
+
+Q47. Find the Nth-highest salary.
+Answer:
+One approach is DENSE_RANK():
+
+SELECT salary
+FROM (
+    SELECT DISTINCT salary,
+           DENSE_RANK() OVER (ORDER BY salary DESC) AS rnk
+    FROM Employee
+) x
+WHERE rnk = N;
+
+Replace N with the required rank.
+
+Q48. Find the highest salary in each department.
+Answer:
+SELECT dept_id, MAX(salary) AS max_salary
+FROM Employee
+GROUP BY dept_id;
+
+Q49. Find employees earning more than the average salary.
+Answer:
+SELECT *
+FROM Employee
+WHERE salary > (SELECT AVG(salary) FROM Employee);
+
+Q50. Find employees earning more than their department average.
+Answer:
+SELECT e.*
+FROM Employee e
+WHERE e.salary > (
+    SELECT AVG(e2.salary)
+    FROM Employee e2
+    WHERE e2.dept_id = e.dept_id
+);
+
+Q51. Find the top 3 salaries.
+Answer:
+SELECT DISTINCT salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 3;
+
+For databases where LIMIT is not supported, use a ranking/window-function approach.
+
+Q52. Find the highest-paid employee in each department.
+Answer:
+SELECT *
+FROM (
+    SELECT e.*,
+           DENSE_RANK() OVER (
+               PARTITION BY dept_id
+               ORDER BY salary DESC
+           ) AS rnk
+    FROM Employee e
+) x
+WHERE rnk = 1;
+
+============================================================
+8. DUPLICATE RECORD QUESTIONS
+============================================================
+
+Q53. Find duplicate names.
+Answer:
+SELECT name, COUNT(*) AS cnt
+FROM Employee
+GROUP BY name
+HAVING COUNT(*) > 1;
+
+Q54. Find duplicate emails.
+Answer:
+SELECT email, COUNT(*) AS cnt
+FROM Employee
+GROUP BY email
+HAVING COUNT(*) > 1;
+
+Q55. How do you delete duplicate rows?
+Answer:
+If id is unique and name/email identifies duplicates:
+
+DELETE e1
+FROM Employee e1
+JOIN Employee e2
+ON e1.email = e2.email
+AND e1.id > e2.id;
+
+This keeps the row with the smallest id.
+
+============================================================
+9. NULL AND FILTERING
+============================================================
+
+Q56. What is NULL?
+Answer:
+NULL represents a missing, unknown or not-applicable value. It is not equal to 0 and is not the same as an empty string.
+
+Q57. How do you check NULL?
+Answer:
+Use IS NULL or IS NOT NULL.
+
+Example:
+SELECT *
+FROM Employee
+WHERE manager_id IS NULL;
+
+Q58. Why is = NULL incorrect?
+Answer:
+NULL represents an unknown value, so comparisons using = or <> do not evaluate to TRUE. Use IS NULL or IS NOT NULL.
+
+Q59. What is COALESCE?
+Answer:
+COALESCE returns the first non-NULL expression.
+
+Example:
+SELECT COALESCE(phone, 'Not Available')
+FROM Employee;
+
+Q60. What is IFNULL in MySQL?
+Answer:
+IFNULL(expression, replacement) returns the replacement when the expression is NULL.
+
+============================================================
+10. SUBQUERIES
+============================================================
+
+Q61. What is a subquery?
+Answer:
+A subquery is a query nested inside another SQL statement.
+
+Q62. What is a correlated subquery?
+Answer:
+A correlated subquery refers to a column from the outer query and is logically evaluated for each relevant outer row.
+
+Q63. Correlated vs non-correlated subquery?
+Answer:
+A non-correlated subquery can run independently of the outer query. A correlated subquery depends on values from the outer query.
+
+Q64. IN vs EXISTS?
+Answer:
+IN compares a value against a set of returned values. EXISTS checks whether the subquery returns at least one row. EXISTS can be useful for existence checks.
+
+Q65. Find employees earning the maximum salary.
+Answer:
+SELECT *
+FROM Employee
+WHERE salary = (SELECT MAX(salary) FROM Employee);
+
+============================================================
+11. SELF JOIN / MANAGER QUESTIONS
+============================================================
+
+Q66. Find employees earning more than their managers.
+Answer:
+SELECT e.name
+FROM Employee e
+JOIN Employee m
+ON e.manager_id = m.id
+WHERE e.salary > m.salary;
+
+Q67. Why use SELF JOIN?
+Answer:
+Use a self join when rows in the same table have a relationship with one another, such as employee-manager, parent-child or predecessor-successor relationships.
+
+============================================================
+12. WINDOW FUNCTIONS
+============================================================
+
+Q68. What is a window function?
+Answer:
+A window function calculates a value across related rows without collapsing those rows into one row per group.
+
+Q69. RANK vs DENSE_RANK vs ROW_NUMBER?
+Answer:
+ROW_NUMBER gives every row a unique sequential number.
+RANK gives equal values the same rank but leaves gaps after ties.
+DENSE_RANK gives equal values the same rank without gaps.
+
+Example salaries:
+100, 100, 90
+
+ROW_NUMBER: 1, 2, 3
+RANK:       1, 1, 3
+DENSE_RANK: 1, 1, 2
+
+Q70. Why use DENSE_RANK for Nth-highest distinct salary?
+Answer:
+Because equal salaries receive the same rank and the next distinct salary gets the next consecutive rank.
+
+Q71. What does PARTITION BY do?
+Answer:
+It divides rows into independent groups for the window function while keeping the rows in the result.
+
+============================================================
+13. NORMALIZATION
+============================================================
+
+Q72. What is normalization?
+Answer:
+Normalization organizes data to reduce unnecessary duplication and improve data integrity.
+
+Q73. What is 1NF?
+Answer:
+1NF requires atomic values and no repeating groups in a relational table.
+
+Q74. What is 2NF?
+Answer:
+2NF requires 1NF and that every non-key attribute depends on the whole candidate key, not just part of a composite key.
+
+Q75. What is 3NF?
+Answer:
+3NF requires 2NF and removes relevant transitive dependencies of non-key attributes on the key.
+
+Q76. What is denormalization?
+Answer:
+Denormalization intentionally introduces some redundancy to improve read performance or simplify queries, with a trade-off in storage and update complexity.
+
+============================================================
+14. INDEXES
+============================================================
+
+Q77. What is an index?
+Answer:
+An index is a data structure that helps the database locate rows more efficiently for suitable queries.
+
+Q78. Why are indexes used?
+Answer:
+They can improve SELECT, JOIN, filtering and sorting performance when the indexed columns are useful for the query.
+
+Q79. What are disadvantages of indexes?
+Answer:
+Indexes consume storage and can make INSERT, UPDATE and DELETE operations more expensive because indexes may also need to be maintained.
+
+Q80. What is a composite index?
+Answer:
+An index built on multiple columns.
+
+Q81. How do you create an index in MySQL?
+Answer:
+CREATE INDEX idx_emp_dept
+ON Employee(dept_id);
+
+Q82. What is EXPLAIN?
+Answer:
+EXPLAIN shows the query execution plan and helps analyze how MySQL intends to access tables and indexes.
+
+============================================================
+15. TRANSACTIONS / ACID
+============================================================
+
+Q83. What is a transaction?
+Answer:
+A transaction is a logical unit of database work that can contain one or more operations.
+
+Q84. What are ACID properties?
+Answer:
+Atomicity – all-or-nothing transaction behavior.
+Consistency – valid database rules are preserved.
+Isolation – concurrent transactions are controlled so their intermediate states do not improperly interfere.
+Durability – committed changes survive failures according to the database's durability guarantees.
+
+Q85. What is a deadlock?
+Answer:
+A deadlock occurs when transactions wait for resources held by one another, so neither can continue until the database detects and resolves the situation.
+
+============================================================
+16. VIEWS / PROCEDURES / TRIGGERS
+============================================================
+
+Q86. What is a VIEW?
+Answer:
+A view is a stored query that can be queried like a table. It generally stores the query definition rather than a separate copy of the underlying data.
+
+Q87. What is a stored procedure?
+Answer:
+A stored procedure is a named program stored in the database that can contain SQL statements and procedural logic.
+
+Q88. Procedure vs function?
+Answer:
+A procedure is invoked as a procedure and can perform operations without returning a value in the same way a function does. A function returns a value and can be used in contexts where expressions are allowed, subject to MySQL rules.
+
+Q89. What is a trigger?
+Answer:
+A trigger is database code that automatically executes in response to specified events such as INSERT, UPDATE or DELETE.
+
+============================================================
+17. UNION / CASE
+============================================================
+
+Q90. UNION vs UNION ALL?
+Answer:
+UNION combines result sets and removes duplicate rows. UNION ALL combines result sets without removing duplicates and is usually faster when duplicate removal is unnecessary.
+
+Q91. What is CASE?
+Answer:
+CASE provides conditional logic in SQL.
+
+Example:
+SELECT name,
+       CASE
+           WHEN salary >= 100000 THEN 'High'
+           WHEN salary >= 50000 THEN 'Medium'
+           ELSE 'Low'
+       END AS salary_level
+FROM Employee;
+
+============================================================
+18. MYSQL-SPECIFIC
+============================================================
+
+Q92. What is AUTO_INCREMENT?
+Answer:
+AUTO_INCREMENT automatically generates increasing numeric values for a suitable integer column when a value is not explicitly supplied.
+
+Q93. What is LIMIT?
+Answer:
+LIMIT restricts the number of rows returned by a query.
+
+Q94. What is OFFSET?
+Answer:
+OFFSET skips a specified number of rows before returning results, commonly used with LIMIT.
+
+Q95. CHAR vs VARCHAR?
+Answer:
+CHAR is fixed-length, while VARCHAR is variable-length. VARCHAR is generally more space-efficient for values whose lengths vary.
+
+Q96. DATE vs DATETIME?
+Answer:
+DATE stores a date. DATETIME stores both date and time.
+
+Q97. What is ON DELETE CASCADE?
+Answer:
+It tells the database to automatically delete related child rows when the referenced parent row is deleted.
+
+============================================================
+19. VERY COMMON INTERVIEW QUERY PRACTICE
+============================================================
+
+Q98. Find employees who do not belong to any department.
+Answer:
+SELECT e.*
+FROM Employee e
+LEFT JOIN Department d
+ON e.dept_id = d.dept_id
+WHERE d.dept_id IS NULL;
+
+Q99. Find departments with no employees.
+Answer:
+SELECT d.*
+FROM Department d
+LEFT JOIN Employee e
+ON d.dept_id = e.dept_id
+WHERE e.id IS NULL;
+
+Q100. Find departments with more than 5 employees.
+Answer:
+SELECT dept_id, COUNT(*) AS cnt
+FROM Employee
+GROUP BY dept_id
+HAVING COUNT(*) > 5;
+
+Q101. Find employees whose names start with A.
+Answer:
+SELECT *
+FROM Employee
+WHERE name LIKE 'A%';
+
+Q102. Find employees whose salary is between 30000 and 60000.
+Answer:
+SELECT *
+FROM Employee
+WHERE salary BETWEEN 30000 AND 60000;
+
+Q103. Update salary for an employee identified by email.
+Answer:
+UPDATE Employee
+SET salary = 50000
+WHERE email = 'abc@example.com';
+
+Q104. Find employees who have the same salary.
+Answer:
+SELECT salary, COUNT(*) AS cnt
+FROM Employee
+GROUP BY salary
+HAVING COUNT(*) > 1;
+
+Q105. Find the department with the highest average salary.
+Answer:
+SELECT dept_id, AVG(salary) AS avg_salary
+FROM Employee
+GROUP BY dept_id
+ORDER BY avg_salary DESC
+LIMIT 1;
+
+============================================================
+20. RAPID-FIRE QUESTIONS – ONE-LINE ANSWERS
+============================================================
+
+Q106. Can a table have multiple primary keys?
+Answer: It has one PRIMARY KEY constraint, but that key can contain multiple columns.
+
+Q107. Can a table have multiple UNIQUE constraints?
+Answer: Yes.
+
+Q108. Can a foreign key be NULL?
+Answer: Yes, unless NOT NULL is also specified.
+
+Q109. Can a primary key be NULL?
+Answer: No.
+
+Q110. Does COUNT(column) count NULL?
+Answer: No.
+
+Q111. Does COUNT(*) count NULL rows?
+Answer: Yes, it counts rows.
+
+Q112. Which clause filters groups?
+Answer: HAVING.
+
+Q113. Which clause filters rows before grouping?
+Answer: WHERE.
+
+Q114. Which clause sorts results?
+Answer: ORDER BY.
+
+Q115. Which clause creates groups?
+Answer: GROUP BY.
+
+Q116. Which function gives unique consecutive ranks without gaps?
+Answer: DENSE_RANK().
+
+Q117. Which function gives a unique number to every row?
+Answer: ROW_NUMBER().
+
+Q118. Which JOIN keeps all left-table rows?
+Answer: LEFT JOIN.
+
+Q119. Which JOIN returns only matching rows?
+Answer: INNER JOIN.
+
+Q120. Which command permanently saves a transaction?
+Answer: COMMIT.
+
+============================================================
+21. LAST-MINUTE INFOSYS REVISION – TOP 30
+============================================================
+
+1. SQL vs MySQL
+2. DBMS vs RDBMS
+3. DDL vs DML
+4. DELETE vs TRUNCATE vs DROP
+5. Primary Key vs Foreign Key
+6. Primary Key vs UNIQUE
+7. All JOIN types
+8. INNER JOIN vs LEFT JOIN
+9. SELF JOIN
+10. ON vs WHERE
+11. GROUP BY
+12. HAVING
+13. WHERE vs HAVING
+14. COUNT(*) vs COUNT(column)
+15. NULL and IS NULL
+16. Subquery
+17. Correlated subquery
+18. IN vs EXISTS
+19. Second-highest salary
+20. Nth-highest salary
+21. Highest salary per department
+22. Employees above average salary
+23. Employees above department average
+24. Employees earning more than manager
+25. Duplicate records
+26. Delete duplicates
+27. Normalization 1NF/2NF/3NF
+28. Indexes
+29. ACID properties
+30. RANK vs DENSE_RANK vs ROW_NUMBER
+
+END OF ANSWER SHEET
