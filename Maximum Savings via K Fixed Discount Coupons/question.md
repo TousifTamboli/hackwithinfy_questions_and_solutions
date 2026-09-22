@@ -1,4 +1,4 @@
-# Question 2 — Maximum Savings via K Fixed Discount Coupons
+# Question — Maximum Savings via K Fixed Discount Coupons
 
 ## Problem Statement
 

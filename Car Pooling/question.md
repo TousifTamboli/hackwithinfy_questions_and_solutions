@@ -1,4 +1,4 @@
-# Question 1 — Car Pooling
+# Question — Car Pooling
 
 ## Problem Statement
 

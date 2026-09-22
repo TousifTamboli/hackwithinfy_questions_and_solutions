@@ -1,4 +1,4 @@
-# Question 1 — Minimum Makespan on M Identical Servers
+# Question — Minimum Makespan on M Identical Servers
 
 ## Problem Statement
 
